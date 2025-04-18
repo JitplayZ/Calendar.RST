@@ -3,7 +3,7 @@ const urlsToCache = [
   '/',
   '/index.html',
   '/styles.css',
-  '/calendar.js'
+  '/script.js'
   // Include any other assets the app needs to run offline
 ];
 
