@@ -6,8 +6,9 @@
     "display": "standalone",
     "orientation": "portrait",
     "purpose": "any",
-    "theme_color": "#000",
-    "background_color": "#ffffff",
+    "theme_color": "transparent",
+    "background_color": "transparent",
+    "id": "CalendarRST",
 
   "icons": [
     {
@@ -31,6 +32,28 @@
       "sizes": "512x512", 
       "type": "image/png"
     }
-  ]
+  ],
+
+  
+    "screenshots": [
+      {
+        "src": "desk.png",
+        "sizes": "1280x800",
+        "type": "image/png",
+        "form_factor": "wide"
+      },
+      {
+        "src": "night.png",
+        "sizes": "1080x2340",
+        "type": "image/png"
+      },
+      {
+        "src": "day.png",
+        "sizes": "1080x2340",
+        "type": "image/png"
+      }
+    ]
+  
+  
    
 }
