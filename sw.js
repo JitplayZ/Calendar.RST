@@ -10,7 +10,7 @@ const urlsToCache = [
 // Install event: cache essential files
 self.addEventListener('install', event => {
   event.waitUntil(
-    caches.open(CACHE_NAME)
+    caches.open(calendar-app-cache-v1)
       .then(cache => cache.addAll(urlsToCache))
   );
 });
