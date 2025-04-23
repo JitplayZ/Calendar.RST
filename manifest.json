@@ -36,6 +36,12 @@
 
   
     "screenshots": [
+        {
+        "src": "desk.png",
+        "sizes": "1280x800",
+        "type": "image/png",
+        "form_factor": "wide"
+      },
       {
         "src": "night.png",
         "sizes": "1080x2340",
