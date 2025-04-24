@@ -53,27 +53,12 @@
         "type": "image/png"
       },
       {
-        "src": "dnav.png",
-        "sizes": "1080x2340",
-        "type": "image/png"
-      },
-      {
         "src": "nightnav.png",
         "sizes": "1080x2340",
         "type": "image/png"
       },
       {
-        "src": "d23.png",
-        "sizes": "1080x2340",
-        "type": "image/png"
-      },
-      {
         "src": "d24.png",
-        "sizes": "1080x2340",
-        "type": "image/png"
-      },
-      {
-        "src": "n23.png",
         "sizes": "1080x2340",
         "type": "image/png"
       },
