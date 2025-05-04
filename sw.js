@@ -1,5 +1,5 @@
 // Naya cache version - update ke saath
-const CACHE_NAME = 'my-cache-v2';
+const CACHE_NAME = 'calendar-app-cache-v1';
 
 // Updated resources, agar koi naya asset add hua ho, to URL update kar sakte hain
 const urlsToCache = [
@@ -18,7 +18,7 @@ self.addEventListener('install', (event) => {
   self.skipWaiting();
   
   event.waitUntil(
-    caches.open(my-cache-v2).then((cache) => {
+    caches.open(calendar-app-cache-v1).then((cache) => {
       console.log('[Service Worker] Caching new resources');
       return cache.addAll(urlsToCache);
     })
@@ -33,7 +33,7 @@ self.addEventListener('activate', (event) => {
     caches.keys().then((cacheNames) => {
       return Promise.all(
         cacheNames.map((name) => {
-          if (name !== my-cache-v2) {
+          if (name !== calendar-app-cache-v1) {
             console.log('[Service Worker] Deleting old cache:', name);
             return caches.delete(name);
           }
