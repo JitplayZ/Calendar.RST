@@ -1,26 +1,57 @@
-const CACHE_NAME = 'calendar-app-cache-v1';
+// Naya cache version - update ke saath
+const CACHE_NAME = 'my-cache-v2';
+
+// Updated resources, agar koi naya asset add hua ho, to URL update kar sakte hain
 const urlsToCache = [
-  '/',
-  '/index.html',
-  '/styles.css',
-  '/script.js'
-  // Include any other assets the app needs to run offline
+  '/',            // Home page (App shell)
+  '/index.html',  // Main HTML file
+  '/styles.css',  // CSS file
+  '/script.js',      // JavaScript file
+  '/logo.png'     // Logo ya koi image
 ];
 
-// Install event: cache essential files
-self.addEventListener('install', event => {
+// Install event mein resource caching aur immediate activation ke liye skipWaiting() ka use
+self.addEventListener('install', (event) => {
+  console.log('[Service Worker] Install - New Version');
+  
+  // Naya SW turant activate ho jaaye
+  self.skipWaiting();
+  
   event.waitUntil(
-    caches.open(calendar-app-cache-v1)
-      .then(cache => cache.addAll(urlsToCache))
+    caches.open(my-cache-v2).then((cache) => {
+      console.log('[Service Worker] Caching new resources');
+      return cache.addAll(urlsToCache);
+    })
   );
 });
 
-// Fetch event: serve cached responses when available
-self.addEventListener('fetch', event => {
+// Activate event mein purane cache ko clean karo aur new SW ko sabhi clients pe turant claim karo
+self.addEventListener('activate', (event) => {
+  console.log('[Service Worker] Activate - New Version');
+  
+  event.waitUntil(
+    caches.keys().then((cacheNames) => {
+      return Promise.all(
+        cacheNames.map((name) => {
+          if (name !== my-cache-v2) {
+            console.log('[Service Worker] Deleting old cache:', name);
+            return caches.delete(name);
+          }
+        })
+      );
+    }).then(() => {
+      // Sabhi open pages pe new SW ka control turant
+      return self.clients.claim();
+    })
+  );
+});
+
+// Fetch event for serving requests from cache, with network fallback
+self.addEventListener('fetch', (event) => {
   event.respondWith(
     caches.match(event.request)
-      .then(response => response || fetch(event.request))
+      .then((response) => {
+        return response || fetch(event.request);
+      })
   );
 });
-
-// (Optional) Activate event can be added to manage old caches.
