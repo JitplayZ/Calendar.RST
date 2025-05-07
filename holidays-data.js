@@ -190,11 +190,6 @@ const companyHolidays = [
         type: "weeklyholiday"
     },
     {
-        date: "2025-10-19",
-        name: "Weekly Holiday - Sunday",
-        type: "weeklyholiday"
-    },
-    {
         date: "2025-10-26",
         name: "Weekly Holiday - Sunday",
         type: "weeklyholiday"
